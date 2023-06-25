@@ -14,15 +14,8 @@
 
 {% include goals.html %}
 
+In this lesson
 
-- assessments
-    - update yaml to deploy 4 instances of the api 
-    - update yaml to run api on port 8001 
-    - create yaml to deploy api packaged via containerd instead of docker 
-    - quiz: pod deleted -- why didn't the pod restart automatically? 
-    - quiz: wrong spacing in yaml 
-    - quiz: wrong label in pod -- why didn't deployment find the pod 
-    - quiz: port forward syntax (container port is 8000, pod port is 8001)
 - lesson outline
     - api 
     - containers 
@@ -53,3 +46,12 @@
         - delete pod via kubectl 
         - api is down 
         - replica sets 
+
+- assessments
+    - update yaml to deploy 4 instances of the api 
+    - update yaml to run api on port 8001 
+    - create yaml to deploy api packaged via containerd instead of docker 
+    - quiz: pod deleted -- why didn't the pod restart automatically? 
+    - quiz: wrong spacing in yaml 
+    - quiz: wrong label in pod -- why didn't deployment find the pod 
+    - quiz: port forward syntax (container port is 8000, pod port is 8001)

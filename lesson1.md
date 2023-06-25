@@ -1,7 +1,13 @@
 # Problem 1: deploy an API to Kubernetes
 
+{% capture questions %}
+these are the questions
+{% endcapture %}
 
+{% capture objectives %}
+{% endcapture %}
 
+{% include goals.html %}
 
 - questions 
     - how do I deploy an API to Kubernetes? 

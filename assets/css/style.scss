@@ -1,0 +1,19 @@
+---
+---
+@import "{{ site.theme }}";
+
+// From: https://clickhelp.com/clickhelp-technical-writing-blog/create-note-boxes-in-online-documentation-with-html-and-css/
+.callouts
+{
+	border: 1px solid;
+  	border-radius: 5px;
+	padding: 10px;
+	margin: 10px 0;
+	width: 300px;
+}
+
+.callout-important
+{
+	border-color: #e76f51;
+	background-color: rgba(231, 111, 81, 0.1); 
+}

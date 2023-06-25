@@ -12,8 +12,21 @@
 	width: 300px;
 }
 
-.callout-important
+.callout-question
 {
 	border-color: #e76f51;
 	background-color: rgba(231, 111, 81, 0.1); 
+}
+
+.callout-important
+{
+	border-color: #0096C7;
+	background-color: rgba(0, 150, 199, 0.1); 
+}
+
+
+.callout-note
+{
+	border-color: #2A9D8F;
+	background-color: rgba(42, 157, 143, 0.1); 
 }

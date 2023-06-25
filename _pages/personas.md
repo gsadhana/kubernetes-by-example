@@ -1,7 +1,3 @@
----
-title: learner-personas.md
----
-
 ## Persona 1: Junior software developer 
 Olivia recently graduated from a university with a computer science degree. She is comfortable with Java and Python (as most of her classes were taught in one of those languages), SQL databases (she took a few courses), and algorithms (she still remembers most of the basic ones on searching and sorting). She has never worked on a real-world project, however, and she often feels overwhelmed when asked to make changes in large existing codebases.  She is currently working on a project that involves breaking up a large monolith API into microservices deployed to Kubernetes. This has her even more overwhelmed, because she has no experience with Kubernetes and only has vague experience with containers (some of her instructors have provided her with a "Docker environment" and instructions on how to set it up, but it was pretty much a black box for her). 
 

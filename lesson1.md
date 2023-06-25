@@ -1,20 +1,20 @@
 # Problem 1: deploy an API to Kubernetes
 
 {% capture questions %}
-these are the questions
+- How do I deploy an API to Kubernetes? 
+- *Why* would I want to deploy an API to Kubernetes instead of IIS? 
+- What's the difference between a **Container**, **Pod**, **ReplicaSet**, and **Deployment**?
 {% endcapture %}
 
 {% capture objectives %}
+- Run your API in Kubernetes using YAML 
+- Run multiple instances of your API in Kubernetes 
+- Configure Kubernetes to restart your API on failures
 {% endcapture %}
 
 {% include goals.html %}
 
-- questions 
-    - how do I deploy an API to Kubernetes? 
-    - what's the difference between a container, pod, replicaset, and deployment? 
-- learning objectives
-    - create a pod for your api using YAML and Kubectl 
-    - deploy api to kubernetes using YAML 
+
 - assessments
     - update yaml to deploy 4 instances of the api 
     - update yaml to run api on port 8001 

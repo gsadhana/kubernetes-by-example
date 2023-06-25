@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: hello-world-pod
+spec: 
+  containers: 
+  - name: hello-world-container 
+    image: sganapat3/k8s-by-example-lesson1:latest 
+    ports: 
+    - containerPort: 80

@@ -1,5 +1,8 @@
 # Problem 1: deploy an API to Kubernetes
 
+
+
+
 - questions 
     - how do I deploy an API to Kubernetes? 
     - what's the difference between a container, pod, replicaset, and deployment? 

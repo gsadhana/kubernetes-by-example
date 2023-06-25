@@ -16,9 +16,11 @@
 
 In this lesson, we will learn how to deploy a REST API to a Kubernetes cluster. This lesson assumes that you have a Kubernetes cluster up and running. (If you don't, the easiest way to get a cluster to play with is to install Docker Desktop on your machine and enable Kubernetes on it. See [Docker documentation](https://docs.docker.com/desktop/kubernetes/).)
 
+{::options parse_block_html="true" /}
 <div class="callouts callout-note">
 Because the steps are the same regardless of what API we are deploying, I've created an API for you, created a Docker image out of it, and uploaded it to Docker Hub. You can find it [here](https://hub.docker.com/repository/docker/sganapat3/k8s-by-example-lesson1). Feel free to use another API (container image) if you want. 
 </div>
+{::options parse_block_html="false" /}
 
 ## Managing state in Kubernetes 
 
@@ -40,6 +42,7 @@ You run declarative commands by using the `apply` keyword and providing a `YAML`
 kubectl apply -f desired_state.yaml
 ```
 
+{::options parse_block_html="true" /}
 <div class="callouts callout-note">
 ### What is YAML?
 
@@ -54,22 +57,28 @@ hobbies:
 age: 48
 ```
 </div>
+{::options parse_block_html="false" /}
 
+{::options parse_block_html="true" /}
 <div class="callouts callout-question">
 ### Why might declarative state management be preferred to imperative state management? 
 
 Because declarative state management offloads the work of figuring out (1) what the current state is and (2) how to get from the current state to the desired state to Kubernetes. Put another way, developers only need to concern themselves with defining the target state; they don't need to worry about how to get there. (It's like having a self-driving car vs. having to drive yourself.)
 </div>
+{::options parse_block_html="false" /}
 
 ## What are we deploying? 
 In Kubernetes, the smallest thing we can deploy is known as a **Pod**. A Pod is a wrapper around one or more related **Container**s. 
 
+{::options parse_block_html="true" /}
 <div class="callouts callout-note">
 ### What is a container? 
 
 A container is a wrapper around an application (e.g., a REST API) and its dependencies (e.g., .NET 7 and EntityFramework.Core NuGet package running on Linux). You can think of containers as lightweight virtual machines. Containers run on **container platforms**, the most popular of which is Docker. You can learn more about containers by following [Docker's tutorial](https://docker-curriculum.com). 
 </div>
+{::options parse_block_html="false" /}
 
+{::options parse_block_html="true" /}
 <div class="callouts callout-question">
 ### Why did Kubernetes create a wrapper around containers? Why not deploy containers instead of pods? 
 
@@ -79,6 +88,7 @@ For two reasons:
 
 2. Related containers can be run as one unit (e.g., an API needs secrets from an external secret server, so the Pod consists of two containers: a container to run the API and a container to handle the retrieval and refreshing of the secrets). 
 </div>
+{::options parse_block_html="false" /}
 
 ## Create `Pod` YAML specification
 In keeping with the recommended declarative approach, we are going to create the YAML specification for our `Pod`. 
@@ -158,6 +168,7 @@ You should see a `Pod` with status `Running`:
 
 ![kubectl get pods hello-world-pod](images/1-kubectl-get-po-hello-world-pod.png)
 
+{::options parse_block_html="true" /}
 <div class="callouts callout-note">
 ## How do I view the API on my local machine? 
 
@@ -175,5 +186,6 @@ Now, if you go to `localhost:8080` in your web browser, you should see the API:
 
 ![Hello world API](images/1-hello-world-api.png)
 </div>
+{::options parse_block_html="false" /}
 
 Congratulations! You've deployed your first `Pod` to Kubernetes. 

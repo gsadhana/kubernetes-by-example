@@ -2,7 +2,6 @@
 
 {% capture questions %}
 - How do I deploy an API to Kubernetes? 
-- *Why* would I want to deploy an API to Kubernetes instead of IIS? 
 - What's the difference between a **Container** and a **Pod**?
 {% endcapture %}
 

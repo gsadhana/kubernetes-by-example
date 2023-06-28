@@ -11,8 +11,9 @@
 
 {% include goals.html %}
 
-In the [previous lesson]({{site.baseurl}}{% link lesson2.md %}), we learned how to deploy an API (container image) to Kubernetes inside a **Pod**. However, we often need to run multiple instances of an API in production. This gives us better throughput. Also, if one of the instances goes down, our entire product doesn't go down with it (because there are, we hope, still other instances available to take the load). 
+In the [previous lesson]({{site.baseurl}}{% link lesson1.md %}), we learned how to deploy an API (container image) to Kubernetes inside a **Pod**. However, we often need to run multiple instances of an API in production. This gives us better throughput. Also, if one of the instances goes down, our entire product doesn't go down with it (because there are, we hope, still other instances available to take the load). 
 
+{::options parse_block_html="true" /}
 <div class="callouts callout-question">
 Remember that a **Pod** is the smallest deployable unit of work inside Kubernetes. So, a **Pod** is a wrapper around a single instance of your application (in our case, an API). 
 
@@ -193,3 +194,4 @@ In the scenario above where Kubernetes managed to create only one of the two **P
 
 You would expect the `READY` column for one of failing **Pod** to be 0/1 and the `STATUS` column to be NOT `Running`. 
 </div>
+{::options parse_block_html="false" /}

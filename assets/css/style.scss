@@ -35,6 +35,12 @@ body {
 	border-color: #e76f51;
 }
 
+.callout-note h3::before
+{
+	content: "\24d8";
+	margin-right: 6px;
+}
+
 .callout-important
 {
 	border-color: #0096c7;

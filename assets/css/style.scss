@@ -13,7 +13,15 @@ body {
 	border: 1px solid;
   	border-radius: 5px;
 	padding: 10px;
-	margin: 10px 0;
+	margin: 20px 0;
+}
+
+.callouts h3
+{
+	border: 1px solid;
+	padding: 10px 0;
+	margin: 0
+	font-weight: bold;
 }
 
 .callout-question
@@ -22,15 +30,29 @@ body {
 	background-color: rgba(231, 111, 81, 0.1); 
 }
 
+.callout-question h3 
+{
+	border-color: #e76f51;
+}
+
 .callout-important
 {
-	border-color: #0096C7;
+	border-color: #0096c7;
 	background-color: rgba(0, 150, 199, 0.1); 
 }
 
+.callout-important h3 
+{
+	border-color: #0096c7;
+}
 
 .callout-note
 {
-	border-color: #2A9D8F;
+	border-color: #2a9d8f;
 	background-color: rgba(42, 157, 143, 0.1); 
+}
+
+.callout-note h3 
+{
+	border-color: #2a9d8f;
 }

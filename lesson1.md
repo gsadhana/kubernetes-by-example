@@ -169,7 +169,7 @@ You should see a `Pod` with status `Running`:
 
 {::options parse_block_html="true" /}
 <div class="callouts callout-note">
-## How do I view the API on my local machine? 
+### How do I view the API on my local machine? 
 
 The Pod exposes the API on port `80` but how do you get at it from your local machine? By using `port forward`ing. For example, suppose you want to send all traffic from `localhost:8080` to the `Pod` on port `80`. You can do that via: 
 

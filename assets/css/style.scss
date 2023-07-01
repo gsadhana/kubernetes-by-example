@@ -35,9 +35,9 @@ body {
 	border-color: #e76f51;
 }
 
-.callout-note h3::before
+.callout-question h3::before
 {
-	content: "\24d8";
+	content: "\2600";
 	margin-right: 6px;
 }
 
@@ -52,6 +52,12 @@ body {
 	border-color: #0096c7;
 }
 
+.callout-important h3::before
+{
+	content: "\2757";
+	margin-right: 6px;
+}
+
 .callout-note
 {
 	border-color: #2a9d8f;
@@ -61,4 +67,10 @@ body {
 .callout-note h3 
 {
 	border-color: #2a9d8f;
+}
+
+.callout-note h3::before
+{
+	content: "\24d8";
+	margin-right: 6px;
 }

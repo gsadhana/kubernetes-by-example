@@ -104,7 +104,8 @@ You should see:
 <div class="callouts callout-question">
 ### Based on what you learned about how to get a list of **Pod**s and **Deployment**s matching a particular name, how might you see the status of the **Service** you just created?
 
-```$ kubectl get service hello-world-app-svc
+```
+$ kubectl get service hello-world-app-svc
 ```
 
 You should see: 

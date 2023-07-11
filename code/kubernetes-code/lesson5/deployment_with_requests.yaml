@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: intense-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: intense-app
+  template:
+    metadata:
+      name: intense-pod
+      labels:
+        app: intense-app
+    spec:
+      containers:
+      - name: intense-container
+        image: sganapat3/k8s-by-example-lesson5:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "5m"

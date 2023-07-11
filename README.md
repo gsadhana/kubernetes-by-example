@@ -6,3 +6,4 @@ Teaches Kubernetes by example
 3. [Problem 2: Deploy multiple instances of an API to Kubernetes]({{site.baseurl}}{% link lesson2.md %})
 4. [Problem 3: How to make the API recover automatically on failures?]({{site.baseurl}}{% link lesson3.md %})
 5. [Problem 4: Expose API to the outside world]({{site.baseurl}}{% link lesson4.md %})
+6. [Problem 5: Make API scale elastically to meet demand]({{site.baseurl}}{% link lesson5.md %})

@@ -182,3 +182,15 @@ After a few minutes, look at the **HPA** again (`kubectl get hpa`). You should s
 If you look at the **Deployment** (`kubectl get deploy`), you should see that there are 3 **Pod** instances running, which you can verify via `kubectl get pod -l app=intense-app`.
 
 Good job! You've learned how to get kubernetnes to automatically scale your deployments based on metrics!
+
+## Summary
+
+- A **HorizontalPodAutoScaler** allows you to react to change in resource usage (memory, cpu, etc.) to scale your **Pod**s up or down as necessary
+
+## Exercises
+
+1. Update `intense-hpa` to scale up to 10 replicas.
+
+2. Update `intense-hpa` to scale up to an infinite number of replicas.
+
+3. Create a `memory-intense-hpa` to scale up via memory usage (when memory usage > 5%, scale up; when it's <= 2%, scale down). Practice looking through [Kubernetes documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) to get the appropriate YAML spec.

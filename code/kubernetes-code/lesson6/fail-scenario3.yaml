@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fail-scenario3-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fail-scenario3-app
+  template:
+    metadata:
+      name: fail-scenario3-pod
+      labels:
+        app: fail-scenario3-app
+    spec:
+      containers:
+      - name: intense-container
+        image: sganapat3/k8s-by-example-lesson1:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: fail-scenario3-svc
+spec:
+    ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 81
+    selector:
+        app: fail-scenario3-app
+    type: ClusterIP

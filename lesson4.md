@@ -123,7 +123,8 @@ Let's use `port forwarding` to get to the **Service** from our machine.
 ### You've used `port forwarding` before to reach a **Pod**. Based on that, try to guess how you would `port forward` to a **Service**.
 
 
-```$ kubectl port-forward service/hello-world-app-svc 8082:8081
+```
+$ kubectl port-forward service/hello-world-app-svc 8082:8081
 ```
 
 You should see:

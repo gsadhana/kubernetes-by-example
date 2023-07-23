@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fail-scenario1-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fail-scenario1-app
+  template:
+    metadata:
+      name: fail-scenario1-pod
+      labels:
+        app: fail-scenario1-app
+    spec:
+      containers:
+      - name: intense-container
+        image: sganapat3/k8s-by-example-lesson6:latest
+        ports:
+        - containerPort: 80

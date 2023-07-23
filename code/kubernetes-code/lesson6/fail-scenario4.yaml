@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fail-scenario4-dep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fail-scenario4-app
+  template:
+    metadata:
+      labels:
+        app: fail-scenario4-app
+    spec:
+      containers:
+        - name: fail-scenario4-container
+          image: sganapat3/scenario4:latest
+          resources:
+            limits:
+              cpu: "1m"
+            requests:
+              memory: "33Gi"

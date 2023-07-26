@@ -93,7 +93,7 @@ body {
 	height: 100%;
 	position: relative;
 	perspective: 1000px;
-	transition: all 2s ease;
+	transition: all 1s ease;
 	transform-style: preserve-3d;
 	cursor: pointer;
 }
@@ -111,10 +111,10 @@ body {
 }
 
 .back {
-	transform: rotateX(180deg);
+	transform: rotateY(180deg);
 	background-color: rgba(231, 111, 81, 0.2);
 }
 
 .flipped {
-	transform: rotateX(180deg);
+	transform: rotateY(180deg);
 }

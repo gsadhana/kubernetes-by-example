@@ -81,17 +81,17 @@ body {
 
 .flashcard-container {
 	position: relative;
-	width: 700px;
-	height: 500px
+	width: 500px;
 }
 
 .flashcard {
 	position: absolute;
 	width: 100%;
-	height: 100%;
-	margin: 10px;
+	min-height: 100px;
 	transition: all 0.75s ease;
 	transform-style: preserve-3d;
+	display: flex;
+	flex-direction: column;
 }
 
 .flashcard:hover {
@@ -102,10 +102,12 @@ body {
 	backface-visibility: hidden;
 	position: absolute;
 	width: 100%;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
 	box-shadow: 10px 10px 5px 0px rgba(41, 22, 22, 0.3);
+	justify-content: center;
+	align-content: center;
+	padding: 20px;
 }
 
 .front {
@@ -114,5 +116,5 @@ body {
 
 .back {
 	transform: rotateX(180deg);
-	background-color: rgba(231, 111, 81, 0.4);
+	background-color: rgba(231, 111, 81, 0.2);
 }

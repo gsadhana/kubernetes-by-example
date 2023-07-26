@@ -85,10 +85,9 @@ body {
 }
 
 .flashcard {
-	position: absolute;
 	width: 100%;
 	min-height: 100px;
-	transition: all 0.75s ease;
+	transition: all 2s ease;
 	transform-style: preserve-3d;
 	display: flex;
 	flex-direction: column;

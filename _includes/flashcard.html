@@ -1,10 +1,10 @@
 <div class="flashcard-container">
     <div class="flashcard">
         <div class="front">
-            {{front | markdownify}}
+            {{include.front | markdownify}}
         </div>
         <div class="back">
-            {{back | markdownify}}
+            {{include.back | markdownify}}
         </div>
     </div>
 </div>

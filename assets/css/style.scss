@@ -96,7 +96,10 @@ body {
 	flex-direction: column;
 }
 
-.flashcard:hover {
+// The :not(:active) prevents flashcard
+// from flipping when we try to use the
+// scrollbar.
+.flashcard:hover:not(:active) {
 	transform: rotateX(180deg);
 }
 

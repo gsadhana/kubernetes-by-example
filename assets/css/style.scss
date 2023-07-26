@@ -89,7 +89,7 @@ body {
 }
 
 .flashcard {
-	width: 98%;
+	width: 100%;
 	height: 100%;
 	transition: all 2s ease;
 	transform-style: preserve-3d;
@@ -106,7 +106,7 @@ body {
 
 .front, .back {
 	backface-visibility: hidden;
-	position: relative;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 	display: flex;

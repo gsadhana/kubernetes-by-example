@@ -58,17 +58,17 @@ age: 48
 </div>
 {::options parse_block_html="false" /}
 
-{% capture declarative-front %}
+{% capture front %}
 Why might declarative state management be preferred to imperative state management?
 {% endcapture %}
 
-{% capture declarative-back %}
+{% capture back %}
 Because declarative state management offloads the work of figuring out (1) what the current state is and (2) how to get from the current state to the desired state to Kubernetes. Put another way, developers only need to concern themselves with defining the target state; they don't need to worry about how to get there. (It's like having a self-driving car vs. having to drive yourself.)
 
 Declarative configuration can also be saved to source control, allowing you to see change history as well as replicate your Kubernetes configuration to another cluster easily.
 {% endcapture %}
 
-{% include flashcard.html front=declarative-front back=declarative-back %}
+{% include flashcard.html front=front back=back %}
 
 ## What are we deploying?
 In Kubernetes, the smallest thing we can deploy is known as a **Pod**. A Pod is a wrapper around one or more related **Container**s.
@@ -81,12 +81,11 @@ A container is a wrapper around an application (e.g., a REST API) and its depend
 </div>
 {::options parse_block_html="false" /}
 
-
-{% capture pod-v-container-front %}
+{% capture front %}
 Why did Kubernetes create a wrapper around containers? Why not deploy containers instead of pods?
 {% endcapture %}
 
-{% capture pod-v-container-back %}
+{% capture back %}
 For two reasons:
 
 1. Wrapping containers with Pods means that Kubernetes has isolated itself from container platforms. For example, Kubernetes can choose to support multiple container platforms (e.g., Kubernetes supports both `Docker` and `containerd`).
@@ -94,7 +93,7 @@ For two reasons:
 2. Related containers can be run as one unit (e.g., an API needs secrets from an external secret server, so the Pod consists of two containers: a container to run the API and a container to handle the retrieval and refreshing of the secrets).
 {% endcapture %}
 
-{% include flashcard.html front=pod-v-container-front back=pod-v-container-back %}
+{% include flashcard.html front=front back=back %}
 
 ## Create `Pod` YAML specification
 In keeping with the recommended declarative approach, we are going to create the YAML specification for our `Pod`.
@@ -210,4 +209,3 @@ Congratulations! You've deployed your first `Pod` to Kubernetes.
 3. Add a label to the `my-hello-world-pod` where the key is `app` and the value is `my-hello-world-app`.
 
 4. In the lesson, we deployed an `nginx` **Pod** imperatively. Deploy the same **Pod** declaratively (via a YAML spec).
-

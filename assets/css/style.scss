@@ -82,11 +82,13 @@ body {
 .flashcard-container {
 	position: relative;
 	width: 500px;
+	height: 300px;
+	overflow-y: auto;
 }
 
 .flashcard {
 	width: 100%;
-	min-height: 100px;
+	height: 100%;
 	transition: all 2s ease;
 	transform-style: preserve-3d;
 	display: flex;
@@ -101,12 +103,14 @@ body {
 	backface-visibility: hidden;
 	position: absolute;
 	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	box-shadow: 10px 10px 5px 0px rgba(41, 22, 22, 0.3);
 	justify-content: center;
 	align-content: center;
 	padding: 20px;
+	overflow: hidden;
 }
 
 .front {

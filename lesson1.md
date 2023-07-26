@@ -58,15 +58,18 @@ age: 48
 </div>
 {::options parse_block_html="false" /}
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Why might declarative state management be preferred to imperative state management?
+{% capture declarative-front %}
+Why might declarative state management be preferred to imperative state management?
+{% endcapture %}
 
+{% capture declarative-back %}
 Because declarative state management offloads the work of figuring out (1) what the current state is and (2) how to get from the current state to the desired state to Kubernetes. Put another way, developers only need to concern themselves with defining the target state; they don't need to worry about how to get there. (It's like having a self-driving car vs. having to drive yourself.)
 
 Declarative configuration can also be saved to source control, allowing you to see change history as well as replicate your Kubernetes configuration to another cluster easily.
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=declarative-front back=declarative-back %}
+
 
 ## What are we deploying?
 In Kubernetes, the smallest thing we can deploy is known as a **Pod**. A Pod is a wrapper around one or more related **Container**s.

@@ -70,7 +70,6 @@ Declarative configuration can also be saved to source control, allowing you to s
 
 {% include flashcard.html front=declarative-front back=declarative-back %}
 
-
 ## What are we deploying?
 In Kubernetes, the smallest thing we can deploy is known as a **Pod**. A Pod is a wrapper around one or more related **Container**s.
 
@@ -82,17 +81,20 @@ A container is a wrapper around an application (e.g., a REST API) and its depend
 </div>
 {::options parse_block_html="false" /}
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Why did Kubernetes create a wrapper around containers? Why not deploy containers instead of pods?
 
+{% capture pod-v-container-front %}
+Why did Kubernetes create a wrapper around containers? Why not deploy containers instead of pods?
+{% endcapture %}
+
+{% capture pod-v-container-back %}
 For two reasons:
 
 1. Wrapping containers with Pods means that Kubernetes has isolated itself from container platforms. For example, Kubernetes can choose to support multiple container platforms (e.g., Kubernetes supports both `Docker` and `containerd`).
 
 2. Related containers can be run as one unit (e.g., an API needs secrets from an external secret server, so the Pod consists of two containers: a container to run the API and a container to handle the retrieval and refreshing of the secrets).
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=pod-v-container-front back=pod-v-container-back %}
 
 ## Create `Pod` YAML specification
 In keeping with the recommended declarative approach, we are going to create the YAML specification for our `Pod`.

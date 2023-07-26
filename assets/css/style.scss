@@ -91,17 +91,11 @@ body {
 .flashcard {
 	width: 100%;
 	height: 100%;
+	position: relative;
+	perspective: 1000px;
 	transition: all 2s ease;
 	transform-style: preserve-3d;
-	display: flex;
-	flex-direction: column;
-}
-
-// The :not(:active) prevents flashcard
-// from flipping when we try to use the
-// scrollbar.
-.flashcard:hover:not(:active) {
-	transform: rotateX(180deg);
+	cursor: pointer;
 }
 
 .front, .back {
@@ -109,13 +103,7 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
 	box-shadow: 10px 10px 5px 0px rgba(41, 22, 22, 0.3);
-	padding: 20px;
-	overflow: hidden;
-	justify-content: flex-start;
-	align-items: flex-start;
 }
 
 .front {
@@ -125,4 +113,8 @@ body {
 .back {
 	transform: rotateX(180deg);
 	background-color: rgba(231, 111, 81, 0.2);
+}
+
+.flipped {
+	transform: rotateY(180deg);
 }

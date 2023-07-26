@@ -11,7 +11,6 @@
 
 {% include goals.html %}
 
-{::options parse_block_html="true" /}
 In the [previous lesson]({{site.baseurl}}{% link lesson2.md %}), we learned that **Deployment**s allow you to create multiple **Pod** instances. I.e., they help you scale horizontally.
 
 Another major advantage of using a **Deployment** instead of managing **Pod**s directly is **recoverability**: when you use a **Deployment**, *Kubernetes* care of recovering **Pod**s on failures (vs. you having to do it manually otherwise).
@@ -32,12 +31,13 @@ Let's see this in action.
 
 First, let's watch the problem with *not* using a **Deployment** (i.e., deploying a **Pod** manually).
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
 Do you remember how to create a **Pod** manually? If not, refer back to [lesson 1]({{site.baseurl}}{% link lesson1.md %}).
 
+{% capture front %}
 Create a **Pod** named `hello-world-pod-del` with image `sganapat3/k8s-by-example-lesson1:latest` that runs on port `8080`. Verify that it is running.
+{% endcapture %}
 
+{% capture back %}
 You can create the **Pod** using the following YAML specification:
 
 ```yaml
@@ -62,8 +62,10 @@ $ kubectl get pod hello-world-pod-del
 You should see:
 
 ![hello-world-pod-del running](images/3-get-po.png)
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
+
 
 Now, delete the **Pod** using:
 
@@ -81,12 +83,13 @@ Now, let's see what happens when we use a **Deployment**.
 
 ## How **Deployment**s auto-recover **Pod**s on failures
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
 Do you remember how to create a **Deployment**? If not, refer back to [lesson 2]({{site.baseurl}}{% link lesson2.md %}).
 
+{% capture front %}
 Create a **Deployment** called `hello-world-deploy-del` that creates 1 instance of the **Pod** as specified above. (Remember that **Deployment**/**Pod** associations need to be handled explicitly. However you associate them, make sure the **Deployment** is only associated with the new **Pod**) Verify that the **Deployment** got created and that the associated **Pod** is running.
+{% endcapture %}
 
+{% capture back %}
 You can create the **Deployment** via the following YAML:
 
 ```yaml
@@ -123,8 +126,10 @@ $ kubectl get deployment hello-world-deployment-del
 You should see:
 
 ![get deployment output](images/3-get-deploy.png)
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
+
 
 ## Look at the **Pod**s associated with the **Deployment**
 
@@ -152,17 +157,19 @@ You should see:
 
 ![pod deleted](images/3-delete-deploy-po.png)
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
+{% capture front %}
 An easier way to delete the **Pod** would be through its `label` because (1) you already know the label and (2) it's human readable/writable (vs. having the unique suffix at the end).
 
 Based on how you get **Pod**s by label, can you guess how you would *delete* a **Pod** by its label?
+{% endcapture %}
 
+{% capture back %}
 ```
 $ kubectl delete po -l app=hello-world-app-del
 ```
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 If you run `kubectl get deployment` quickly enough after you delete the **Pod**, you may see the **Deployment** realizing that it's missing a **Pod**:
 

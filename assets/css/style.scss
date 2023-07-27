@@ -94,6 +94,7 @@ body {
 	position: relative;
 	transition: all 1s ease;
 	transform-style: preserve-3d;
+	perspective: 1000px;
 	cursor: pointer;
 }
 

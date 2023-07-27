@@ -48,18 +48,21 @@ Run `kubectl get deploy` to see how many **Pod**s are running (should be 1 insta
 
 The resource that handles automatic horizontal scaling is the appropriately-named `HorizontalPodAutoscaler`. The HPA works by monitoring CPU or memory usage and increasing or decreasing the number of **Pod** replicas accordingly.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Do you remember what **replicas** are?
+{% capture front %}
+Do you remember what **replicas** are?
+{% endcapture %}
 
+{% capture back %}
 Replicas are nothing more than "instances" of a **Pod**. E.g., 10 replicas means 10 instances of the **Pod** are running.
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Can you guess what the structure of the YAML file for an HPA will look like?
+{% include flashcard.html front=front back=back %}
 
+{% capture front %}
+Can you guess what the structure of the YAML file for an HPA will look like?
+{% endcapture %}
+
+{% capture back %}
 ```yaml
 apiVersion: ...
 kind: HorizontalPodAutoscaler
@@ -68,8 +71,9 @@ metadata:
 spec:
     ...
 ```
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 Let's say our requirements for scaling are that when the CPU load gets over 20%, we want to increase our **Pod** count to a maximum of 3. When CPU load falls below 20%, we want to scale back to 1 replica.
 

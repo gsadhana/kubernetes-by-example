@@ -41,13 +41,15 @@ Let's keep these steps in mind while we try to solve a couple of different scena
 
 Run `kubectl apply -f fail-scenario1.yaml`.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Do you remember how to get the `Deployment` status?
+{% capture front %}
+Do you remember how to get the `Deployment` status?
+{% endcapture %}
 
+{% capture back %}
 Run `kubectl get deployment` and look at the READY column of the appropriate `Deployment`. If everything worked, you can expect to see the number of expected replicas in the READY column.
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 The `Deployment` has clearly failed. How to troubleshoot?
 
@@ -55,13 +57,15 @@ The `Deployment` has clearly failed. How to troubleshoot?
 
 Let's look at the `Deployment` logs first to see if there is a clue.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Do you remember how to get the `Deployment` logs?
+{% capture front %}
+Do you remember how to get the `Deployment` logs?
+{% endcapture %}
 
+{% capture back %}
 Run `kubectl logs deployment/{name of deployment}`.
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 If you run `kubectl logs deployment/fail-scenario1-dep`, you should see something along the lines of:
 
@@ -69,15 +73,17 @@ If you run `kubectl logs deployment/fail-scenario1-dep`, you should see somethin
 
 Good, so we know that the `Deployment` failed because a `Container` failed to come up, and we also know that the `Container` failed to come up because it couldn't pull the `Image`. Let's see if we can get more details by looking at the `Pod`s.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Do you remember how to get the `Pod`s associated with a `Deployment`?
+{% capture front %}
+Do you remember how to get the `Pod`s associated with a `Deployment`?
+{% endcapture %}
 
+{% capture back %}
 Remember how the `Deployment` attaches itself to its `Pod`s: through `label`s! We can do the same:
 
 `kubectl get pods -l app=fail-scenario1-app`
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 You should see something along the lines of:
 
@@ -99,15 +105,17 @@ Run `kubectl apply -f fail-scenario2.yaml`. The `Deployment` will fail: the stat
 
 Let's try to figure it out.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Do you remember what we did first in the previous scenario after figuring out that there is indeed a problem with the `Deployment`?
+{% capture front %}
+Do you remember what we did first in the previous scenario after figuring out that there is indeed a problem with the `Deployment`?
+{% endcapture %}
 
+{% capture back %}
 We checked the `Deployment` logs:
 
 `kubectl logs deployment/fail-scenario2-dep`
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 If you look at the `Deployment` logs, you will see ... nothing.
 
@@ -133,15 +141,17 @@ Run `kubectl apply -f fail-scenario3.yaml`.
 
 As always, let's start by looking at the `Deployment` status. You should see that the Deployment has succeeded. Does this mean that it worked? Let's check by `port-forward`ing from our local machine to the `service` so we can navigate to the website.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Do you remember how to `port-forward`?
+{% capture front %}
+Do you remember how to `port-forward`?
+{% endcapture %}
 
+{% capture back %}
 ```
 $ kubectl port-forward service/fail-scenario3-svc 8081:8081
 ```
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 Navigate to the website on your local machine. You should see ... except you don't! You get an error saying the browser cannot connect to the server. What's going on?
 

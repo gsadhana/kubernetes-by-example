@@ -23,13 +23,15 @@ $ kubectl get po -o wide
 
 Now, suppose you have to make a change to your application. You make the change and redeploy the **Pod**. This will delete the old **Pod** and create a new **Pod** (with the new app) in its place.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Can you think of what problem this creates?
+{% capture front %}
+Can you think of what problem this creates?
+{% endcapture %}
 
+{% capture back %}
 When the new **Pod** gets created, it gets a new IP address. So, clients that were using the IP address of the previous **Pod** will now to get errors, because that IP address points to nothing.
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 How to solve this problem? That's where **Service**s come in. A **Service** serves multiple purposes in the Kubernetes world:
 
@@ -37,15 +39,17 @@ How to solve this problem? That's where **Service**s come in. A **Service** serv
 
 2. It is the means by which you expose a **Pod** outside the Kubernetes world.
 
-
 ## How to set up a `Service`?
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Based on what you learned in the [previous lesson]({{site.baseurl}}{% link lesson3.md %}) about how **Deployment**s are associated to **Pod**s, can you think of how to tell a **Service** what **Pod**s it should work with?
 
+{% capture front %}
+Based on what you learned in the [previous lesson]({{site.baseurl}}{% link lesson3.md %}) about how **Deployment**s are associated to **Pod**s, can you think of how to tell a **Service** what **Pod**s it should work with?
+{% endcapture %}
+
+{% capture back %}
 Through `label`s.
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 Kubernetes provides multiple types of **Service**s:
 
@@ -56,10 +60,11 @@ Kubernetes provides multiple types of **Service**s:
 
 ## How to define a `ClusterIP` Kubernetes Service?
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Can you guess what the structure of a **Service** YAML definition will look like based on what you know about how to define **Pod**s and **Deployment**s?
+{% capture front %}
+Can you guess what the structure of a **Service** YAML definition will look like based on what you know about how to define **Pod**s and **Deployment**s?
+{% endcapture %}
 
+{% capture back %}
 ```yaml
 apiVersion: ...
 kind: Service
@@ -68,8 +73,9 @@ metadata:
 spec:
     ...
 ```
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 Here is the YAML definition of a `ClusterIP` **Service** that points to the `hello-world-app-del` **Pod**s we created in the previous lesson.
 
@@ -100,10 +106,11 @@ You should see:
 
 ![service created](images/4-svc-created.png)
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### Based on what you learned about how to get a list of **Pod**s and **Deployment**s matching a particular name, how might you see the status of the **Service** you just created?
+{% capture front %}
+Based on what you learned about how to get a list of **Pod**s and **Deployment**s matching a particular name, how might you see the status of the **Service** you just created?
+{% endcapture %}
 
+{% capture back %}
 ```
 $ kubectl get service hello-world-app-svc
 ```
@@ -111,18 +118,19 @@ $ kubectl get service hello-world-app-svc
 You should see:
 
 ![svc results](images/4-get-svc.png)
-</div>
-{::options parse_block_html="false" /}
+{% endcapture %}
+
+{% include flashcard.html front=front back=back %}
 
 You can reach this **Service** from inside the Kubernetes cluster at either the `ClusterIP` and the `Port` (i.e., http://10.107.33.29:8081 above) or **Service** name and `Port` (i.e., http://hello-world-app-svc:8081). The traffic will get redirected to one of the **Pod** instances associated with the **Service**.
 
 Let's use `port forwarding` to get to the **Service** from our machine.
 
-{::options parse_block_html="true" /}
-<div class="callouts callout-question">
-### You've used `port forwarding` before to reach a **Pod**. Based on that, try to guess how you would `port forward` to a **Service**.
+{% capture front %}
+You've used `port forwarding` before to reach a **Pod**. Based on that, try to guess how you would `port forward` to a **Service**.
+{% endcapture %}
 
-
+{% capture back %}
 ```
 $ kubectl port-forward service/hello-world-app-svc 8082:8081
 ```
@@ -136,9 +144,9 @@ This tells you that the **Service** was set up correctly and is ready to forward
 Now, if you navigate to `http://localhost:8082`, you should see:
 
 ![hello world](images/4-svc-browser.png)
+{% endcapture %}
 
-</div>
-{::options parse_block_html="false" /}
+{% include flashcard.html front=front back=back %}
 
 Good job! You learned how to expose your application through a **Service**!
 
